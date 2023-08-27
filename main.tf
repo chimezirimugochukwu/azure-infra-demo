@@ -1,3 +1,15 @@
+
+terraform {
+  backend "azurerm" {
+    resource_group_name   = "container-resource"
+    storage_account_name  = "jenniferstorage"
+    container_name        = "jennifercontainer"
+    key                   = "terraform.tfstate"
+  }
+}
+
+
+
 provider "azurerm" {
   features {}
   skip_provider_registration = true
@@ -22,7 +34,7 @@ resource "azurerm_app_service_plan" "example" {
 }
 
 resource "azurerm_app_service" "example" {
-  name                = "myuniqueprefix-appservice"
+  name                = "jennifer-appservice"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
   app_service_plan_id = azurerm_app_service_plan.example.id
@@ -47,3 +59,4 @@ resource "azurerm_role_assignment" "example" {
   role_definition_name = "Contributor"
   scope                = azurerm_resource_group.example.id
 }
+
