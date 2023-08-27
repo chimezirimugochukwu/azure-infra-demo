@@ -11,9 +11,10 @@ terraform {
 
 
 provider "azurerm" {
-  features {}
-  skip_provider_registration = true
+  version  = ">=2.0.0"
+  features = {}
 }
+
 
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
@@ -59,4 +60,3 @@ resource "azurerm_role_assignment" "example" {
   role_definition_name = "Contributor"
   scope                = azurerm_resource_group.example.id
 }
-
