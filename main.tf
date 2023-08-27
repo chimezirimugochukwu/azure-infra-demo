@@ -29,8 +29,8 @@ resource "azurerm_app_service_plan" "example" {
   reserved            = true  # Required for Linux
 
   sku {
-    tier = "Standard"
-    size = "S1"
+    tier = "Basic"
+    size = "B1"
   }
 }
 
