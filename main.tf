@@ -10,11 +10,11 @@ terraform {
 
 
 
-provider "azurerm" {
-  version  = ">=2.0.0"
-  features = {}
-}
 
+provider "azurerm" {
+  features {}
+  skip_provider_registration = true
+}
 
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
